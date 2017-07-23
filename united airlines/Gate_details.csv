@@ -1,0 +1,5 @@
+FLIGHT,DATES,DEPART,Time to Depart(min),ORIG,DEST,MILES,CAPACITY,Checked In,BOARDED,United Economy Capacity,United Business Capacity,United First Capacity,United Economy checked in,United Business checked in,United First checked in,United Economy Boarded,United Business Boarded,United First Boarded,Terminal,Gate
+1796,24/1/2017,12:05,1:55,SFO,JFK,2763,210,159,79,180,20,10,140,16,3,64,11,4,3,81
+1076,24/1/2017,12:59,2:00,SFO,EWR,2670,210,172,50,180,20,10,155,12,5,40,8,2,3,75
+1070,24/1/2017,11:00,0:10,SFO,EWR,2670,210,202,180,180,20,10,175,20,7,159,16,5,3,80
+1799,24/1/2017,21:30,10:20,SFO,EWR,2670,250,161,0,180,20,10,140,16,5,0,0,0,3,75

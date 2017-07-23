@@ -1,0 +1,28 @@
+1.1  what are all the setting to be configured to use MAP on shared device ?
+     Don’t worry, the settings will be automatically taken care when you sign into MAP thru Airwatch.
+
+1.2  What are the new feature available for MAP servcie ?
+     You now have option to enable your touch ID for MAP and you can use your finger print whenever you sign-in to MAP, but please note that the touch ID will need to be set up again if you sign out from air watch 
+
+1.3  Touch ID is not working for me ?
+     If you have logged out of Airwatch please set up the touch ID again. 
+
+3.1  I am a gate agent and using MAP application. How do I find out if any unaccompanied minors are travelling in my flight ?
+     Please sign-in to the flight through MAP and on the Selected Flight screen UI you should be able to see a banner “UMNR” at the top of the UI where the fight summary details are displayed. You can access the same information by navigating to footer menus Flight List and Close Sequence if the flight is departing in another 20 minutes 
+
+5   How do I find the list of new features included in the latest MAP release? 
+    Please go thru the Tutorial module available inside MAP application, where you can find the details by release date 
+
+4   I have a customer requesting to change his seat, can I do this thru MAP 
+    Yes, you can do certainly do this thru MAP if you have signed on to the flight 
+    1.Sign-in to the flight thru MAP 
+    2.Access Footer Menu “Flight List” where you will see “All Customer List”. You may search/select the customer and on the Customer Details screen tap on the seat number which will take you seat map 
+    3.OR you can directly access the footer menu “Seat Map” and select the seat number of the customer and pick another available seat from the same cabin and save seat changes 
+    You might see these information on the Tutorial as well. Please feel free to provide your feedback if you would like to have any improvement on the Tutorial and we highly appreciate your feedback 
+
+6  Do we have a way to find the list of customers based on their loyalty profile 
+   Yes, MAP has a feature to filter the customer list by Loyalty Profile. You may find this option in Flight List à All Customer List à On the left side, there is an option to Filter by Premier Status 
+
+10  The flight that I am currently working on seems to be delayed further. I would like to see if any customer(s) are having connecting flight and understand the impact. Is there an easy way to pull the list thru MAP 
+    Yes, MAP shows the list of customer(s) having outbound connections. You can access this list by following the below navigation 
+    Tap on Footer Menu “Flight List” à Tap on “Accommodate” à Tap on “Connections” à Tap on “Outbound”. This  shows the list of connecting flights along with the customers details 

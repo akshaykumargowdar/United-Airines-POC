@@ -1,0 +1,202 @@
+<div ng-controller = "dbcontroller">
+	<div class = "container-fluid"  >
+		<div> <h3 style="color : #00264d" > <center> Flight : 1796 / SFO-EWR / Departs on 24-07-2017:12:05  </center> <h3> </div>
+		<div class = "row"> 
+			<div class = "col col-md-6 outer" >
+				<h3 style="color : #00264d;"> <center> Check-in & Flight Boarding Status </center> </h3>
+				<div class="table-responsive">          
+					  <table class="table" background-color="#000">
+							<thead>
+								<tr bgcolor="#5b505b">
+									<th>PAX</th>
+									<th> UE Chc-In</th>
+									<th> UE Brd</th>
+									<th> UB Chc-In</th>
+									<th> UB Brd</th>
+									<th> UF Chc-In</th>
+									<th> UF Brd</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr bgcolor="#61697a" >
+									<td> General </td>
+									<td>120</td>
+									<td>120</td>
+									<td>6</td>
+									<td>6</td>
+									<td>17</td>
+									<td>17</td>
+								</tr>
+								<tr bgcolor="#61697a">
+									<td> Mileage</td>
+									<td>55</td>
+									<td>55</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+									<td>0</td>
+								</tr>
+								<tr bgcolor="#61697a">
+									<td> Infant </td>
+									<td>2</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+									<td>0</td>
+								</tr>
+								<tr ng-click="tablecntrl()" bgcolor="#3dcc60">
+									<td> SSR </td>
+									<td>2</td>
+									<td>2</td>
+									<td>1</td>
+									<td>1</td>
+									<td>2</td>
+									<td>2</td>
+								</tr>
+							</tbody>
+					  </table>
+				</div>
+			</div>
+			<div class = "col col-md-6 outer" >
+				<h3 style="color : #00264d;"> <center> Mileage Passengers yet to check In / Board </center>  </h3>
+				<div class="table-responsive">          
+					  <table class="table">
+						<thead>
+						  <tr bgcolor="#61697a">
+							<th>Passenger Name</th>
+							<th>Mileage No</th>
+							<th>Class</th>
+							<th> View </th>
+						  </tr>
+						</thead>
+						<tbody>
+							
+						  <tr ng-repeat="x in PassengerData" bgcolor="#5b505b">
+							<td>{{x.name}}</td>
+							<td>{{x.MileageNo}}</td>
+							<td>{{x.class}}</td>
+							<td> <button ng-click="modaldata(x)" type="button" class="btn btn-default btn-circle" data-toggle="modal" data-target="#{{x.id}}"><i class="fa fa-plus-circle"></i></button></td>
+					      </tr>
+						 
+						
+						  
+						</tbody>
+					  </table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" ng-if="showthirdtable">
+			<div class = "col col-md-6 col-md-offset-3" >
+				<h3 style="color : #00264d;"> <center> SSR Passenger Details </center> </h3>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr bgcolor="#5e3f72"> 
+								<th> Name</th>
+								<th> PNR</th>
+								<th> Seat</th>
+								<th>  SSR </th>
+								<th> Assistance Required</th>
+								<th> Details </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr bgcolor="#9a82ba" ng-repeat="x in SSRDetails">
+								<td>{{x.name}}</td>
+								<td>{{x.PNR}}</td>
+								<td>{{x.seat}}</td>
+								<td>{{x.SSR}}</td>
+								<td>{{x.asst}}</td>
+								<td> <button ng-click="modaldata1(x)" type="button" class="btn btn-default btn-circle" data-toggle="modal" data-target="#{{x.id}}"><i class="fa fa-plus-circle"></i></button></td>
+								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div ng-repeat="x in PassengerData" ng-if="$index < 3" class="modalstyle">
+		<div id="{{x.id}}" class="modal fade" role="dialog">
+								  <div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+									  <div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title"><center><p style="color : #ffff;" >Passenger : {{obj.name}} </p></center></h4>
+									  </div>
+									  <div class="modal-body">
+										<p style="color:black;"> {{obj.detail}} </p>
+										<p style="color:blue;"> PNR No :<span style="color:black"> {{obj.pnr}} </span> </p>
+										<p style="color:blue;" ng-if="obj.checked==false"> Checked in status : <span style="color:black;">Not Checked In </span></p>
+										<p style="color:blue;" ng-if="obj.checked==true"> Checked in status : <span style="color:black;">Checked in, yet to Board </span></p>
+										<p style="color:blue;"> Recommendation : <span style="color:black;"> {{obj.recomd}} </span></p>
+										<div ng-if="obj.id==0" ng-init="func1()" id='sunburstChart'></div>
+									  </div>
+									  <div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									  </div>
+									</div>
+								  </div>
+		</div>
+	</div>
+	
+	<div class="modalstyle">
+		<div id="3" class="modal fade" role="dialog">
+								  <div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+									  <div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title"> <center><p style="color : #ffff;" >Passenger : {{obj.name}} </p></center></h4>
+									  </div>
+									  <div class="modal-body">
+										<p style="color:black;"> {{obj.detail}} </p>
+										<p style="color:blue;"> PNR No :<span style="color:black"> {{obj.pnr}} </span> </p>
+										<p style="color:blue;" ng-if="obj.checked==false"> Checked in status : <span style="color:black;">Not Checked In </span></p>
+										<p style="color:blue;" ng-if="obj.checked==true"> Checked in status : <span style="color:black;">Checked in, yet to Board </span></p>
+										<p style="color:blue;"> Recommendation : <span style="color:black;"> {{obj.recomd}} </span></p>
+										<div  id="TAcontainer" style="height: 400px"></div>
+										<p style="color:blue;"> Previous Feedback : <span style="color:black;"> {{feedback}} </span></p>
+									  </div>
+									  <div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									  </div>
+									</div>
+								  </div>
+		</div>
+	</div>
+	
+	<div ng-repeat="x in SSRDetails"  class="modalstyle">
+		<div id="{{obj1.id}}" class="modal fade" role="dialog">
+								  <div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+									  <div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h3 class="modal-title"><center><p style="color : #ffff;" > Source : {{obj1.src}} </p></center> </h3>
+									  </div>
+									  <div class="modal-body">
+										<p style="color : black">{{obj1.srctxt}}</p>
+										<p style="color : black"> <span style="color:blue">Sentiment Score : </span><span style="color : black">{{obj1.score}}</span></p>
+										<p style="color : black"> <span style="color:blue">Tone : </span><span style="color : black">{{obj1.tone}}</span></p>
+										<h3 style="color : blue"> <center> {{obj1.type}} </center> </h3>
+										<p style="color : blue"> Suggested Next Step : <span style="color :black;"> {{obj1.sugg}} </span> </p>
+									  </div>
+									  <div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									  </div>
+									</div>
+								  </div>
+		</div>
+	</div>	
+</div>
+
+
+<!-- Trigger the modal with a button -->
+
+
+
